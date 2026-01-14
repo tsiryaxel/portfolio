@@ -1,1196 +1,1980 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tsiry ANDRIAMAHAFALY - Développeur Full-Stack, intégration IA</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        /* Styles d'animation personnalisés */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+      /* Styles d'animation personnalisés */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        50% {
+          transform: translateY(-10px);
         }
-        
-        @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
         }
-        
-        @keyframes slideInFromLeft {
-            0% { transform: translateX(-30px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
+        50% {
+          background-position: 100% 50%;
         }
-        
-        @keyframes slideInFromRight {
-            0% { transform: translateX(30px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
+        100% {
+          background-position: 0% 50%;
         }
-        
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
         }
-        
-        .animate-gradient {
-            background: linear-gradient(270deg, #1a202c, #2d3748, #4a5568);
-            background-size: 600% 600%;
-            animation: gradientShift 8s ease infinite;
+        100% {
+          background-position: 1000px 0;
         }
-        
-        .animate-shimmer {
-            background: linear-gradient(90deg, 
-                rgba(255,255,255,0) 0%, 
-                rgba(255,255,255,0.05) 50%, 
-                rgba(255,255,255,0) 100%);
-            background-size: 1000px 100%;
-            animation: shimmer 2s infinite linear;
+      }
+
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-30px);
+          opacity: 0;
         }
-        
-        .animate-slide-left {
-            animation: slideInFromLeft 0.6s ease-out;
+        100% {
+          transform: translateX(0);
+          opacity: 1;
         }
-        
-        .animate-slide-right {
-            animation: slideInFromRight 0.6s ease-out;
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(30px);
+          opacity: 0;
         }
-        
-        /* Styles personnalisés */
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        100% {
+          transform: translateX(0);
+          opacity: 1;
         }
-        
-        .card-hover:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .animate-gradient {
+        background: linear-gradient(270deg, #1a202c, #2d3748, #4a5568);
+        background-size: 600% 600%;
+        animation: gradientShift 8s ease infinite;
+      }
+
+      .animate-shimmer {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.05) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        background-size: 1000px 100%;
+        animation: shimmer 2s infinite linear;
+      }
+
+      .animate-slide-left {
+        animation: slideInFromLeft 0.6s ease-out;
+      }
+
+      .animate-slide-right {
+        animation: slideInFromRight 0.6s ease-out;
+      }
+
+      /* Styles personnalisés */
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-tag {
+        transition: all 0.2s ease;
+      }
+
+      .skill-tag:hover {
+        transform: scale(1.05);
+        background-color: #1a202c !important;
+        color: white !important;
+      }
+
+      .project-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.7s;
+      }
+
+      .project-card:hover::before {
+        left: 100%;
+      }
+
+      .typewriter {
+        overflow: hidden;
+        border-right: 3px solid #1a202c;
+        white-space: nowrap;
+        margin: 0 auto;
+        animation: typing 3.5s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
         }
-        
-        .skill-tag {
-            transition: all 0.2s ease;
+        to {
+          width: 100%;
         }
-        
-        .skill-tag:hover {
-            transform: scale(1.05);
-            background-color: #1a202c !important;
-            color: white !important;
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
         }
-        
-        .project-card {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        50% {
+          border-color: #1a202c;
         }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.7s;
+      }
+
+      .stagger-animation > * {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s forwards;
+      }
+
+      .stagger-animation > *:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .stagger-animation > *:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .stagger-animation > *:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .stagger-animation > *:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .stagger-animation > *:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .stagger-animation > *:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        .project-card:hover::before {
-            left: 100%;
+      }
+
+      .glow-border {
+        position: relative;
+        border: 2px solid transparent;
+        background: linear-gradient(#111827, #111827) padding-box,
+          linear-gradient(45deg, #4a5568, #1a202c, #4a5568) border-box;
+        border-radius: 0.75rem;
+      }
+
+      .section-divider {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #4a5568, transparent);
+      }
+
+      .pulse-button {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
         }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: 3px solid #1a202c;
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        70% {
+          box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
         }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
         }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #1a202c }
-        }
-        
-        .stagger-animation > * {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards;
-        }
-        
-        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
-        .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
-        .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
-        .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
-        .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
-        .stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .glow-border {
-            position: relative;
-            border: 2px solid transparent;
-            background: linear-gradient(#111827, #111827) padding-box,
-                        linear-gradient(45deg, #4a5568, #1a202c, #4a5568) border-box;
-            border-radius: 0.75rem;
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #4a5568, transparent);
-        }
-        
-        .pulse-button {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-        }
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
-</head>
-<body class="font-sans bg-gray-50 text-gray-900">
+  </head>
+  <body class="font-sans bg-gray-50 text-gray-900">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3 animate-slide-left">
-                    <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110">
-                        <span class="text-white font-bold">TA</span>
-                    </div>
-                    <div>
-                        <div class="font-bold text-gray-900">Tsiry ANDRIAMAHAFALY</div>
-                        <div class="text-sm text-gray-600">Développeur Full-Stack</div>
-                    </div>
-                </div>
-                
-                <div class="hidden md:flex space-x-8 animate-slide-right">
-                    <a href="#experiences" class="text-gray-700 hover:text-black transition-all duration-300 hover:font-medium relative group">
-                        Réalisations
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="#competences" class="text-gray-700 hover:text-black transition-all duration-300 hover:font-medium relative group">
-                        Compétences
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="#expertise" class="text-gray-700 hover:text-black transition-all duration-300 hover:font-medium relative group">
-                        Expertise
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                    <a href="#contact" class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 pulse-button">
-                        Discuter d'un projet
-                    </a>
-                </div>
-                
-                <button id="mobileMenuBtn" class="md:hidden text-gray-700 hover:text-black transition-colors">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+    <nav
+      class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200 shadow-lg"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-3 animate-slide-left">
+            <div
+              class="w-10 h-10 bg-black rounded-lg flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110"
+            >
+              <span class="text-white font-bold">TA</span>
             </div>
+            <div>
+              <div class="font-bold text-gray-900">Tsiry ANDRIAMAHAFALY</div>
+              <div class="text-sm text-gray-600">Développeur Full-Stack</div>
+            </div>
+          </div>
+
+          <div class="hidden md:flex space-x-8 animate-slide-right">
+            <a
+              href="#experiences"
+              class="text-gray-700 hover:text-black transition-all duration-300 hover:font-medium relative group"
+            >
+              Réalisations
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+            <a
+              href="#competences"
+              class="text-gray-700 hover:text-black transition-all duration-300 hover:font-medium relative group"
+            >
+              Compétences
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+            <a
+              href="#expertise"
+              class="text-gray-700 hover:text-black transition-all duration-300 hover:font-medium relative group"
+            >
+              Expertise
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+            <a
+              href="#contact"
+              class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 pulse-button"
+            >
+              Discuter d'un projet
+            </a>
+          </div>
+
+          <button
+            id="mobileMenuBtn"
+            class="md:hidden text-gray-700 hover:text-black transition-colors"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 md:pt-32 md:pb-24 animate__animated animate__fadeIn">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="max-w-7xl">
-                <div class="mb-10">
-                    <div class="inline-flex items-center space-x-2 mb-6 animate-slide-left">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm">
-                            Développeur Full-Stack
-                        </span>
-                        <span class="text-gray-500">•</span>
-                        <span class="text-gray-600">+5 ans d'expérience</span>
-                    </div>
-
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-right">
-                        Développeur Full-Stack
-                    </h1>
-
-                    <p class="text-2xl text-gray-600 mb-8 max-w-3xl animate-slide-left">
-                        Je conçois, développe et maintiens des applications métier évolutives en production,
-                        en intégrant l'intelligence artificielle là où elle crée une réelle valeur.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4 mb-12 stagger-animation">
-                        <a href="#contact"
-                        class="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center">
-                            <i class="fas fa-paper-plane mr-3"></i>
-                            Discuter d'un projet
-                        </a>
-                        <a href="#experiences"
-                        class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 flex items-center">
-                            <i class="fas fa-code mr-3"></i>
-                            Voir mes réalisations
-                        </a>
-                    </div>
-                </div> 
-                
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 stagger-animation">
-
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-md card-hover">
-                        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 animate-float">
-                            <i class="fas fa-project-diagram text-black text-xl"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-3">Conception Technique</h3>
-                        <p class="text-gray-600">
-                            Analyse des besoins métier, conception fonctionnelle
-                            et structuration technique orientée production.
-                        </p>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-md card-hover">
-                        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 animate-float"
-                            style="animation-delay: 0.1s">
-                            <i class="fas fa-code text-black text-xl"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-3">Développement Full-Stack</h3>
-                        <p class="text-gray-600">
-                            Développement front-end et back-end,
-                            APIs métier et applications web complexes.
-                        </p>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-md card-hover">
-                        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 animate-float"
-                            style="animation-delay: 0.2s">
-                            <i class="fas fa-database text-black text-xl"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-3">Mise en place ERP</h3>
-                        <p class="text-gray-600">
-                            Développement de systèmes ERP,
-                            gestion RH, paie, facturation et stocks.
-                        </p>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-md card-hover">
-                        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 animate-float"
-                            style="animation-delay: 0.3s">
-                            <i class="fas fa-brain text-black text-xl"></i>
-                        </div>
-                        <h3 class="font-bold text-lg mb-3">IA et Analyse de Données</h3>
-                        <p class="text-gray-600">
-                            Collecte de donnée, mise en place de solutions IA,
-                            automatisation et aide à la décision métier.
-                        </p>
-                    </div>
-
-                </div>
+    <section
+      class="pt-24 pb-16 md:pt-32 md:pb-24 animate__animated animate__fadeIn"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl">
+          <div class="mb-10">
+            <div
+              class="inline-flex items-center space-x-2 mb-6 animate-slide-left"
+            >
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm"
+              >
+                Développeur Full-Stack
+              </span>
+              <span class="text-gray-500">•</span>
+              <span class="text-gray-600">+5 ans d'expérience</span>
             </div>
+
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-right"
+            >
+              Développeur Full-Stack
+            </h1>
+
+            <p class="text-2xl text-gray-600 mb-8 max-w-3xl animate-slide-left">
+              Je conçois, développe et maintiens des applications métier
+              évolutives en production, en intégrant l'intelligence artificielle
+              là où elle crée une réelle valeur.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-12 stagger-animation">
+              <a
+                href="#contact"
+                class="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center"
+              >
+                <i class="fas fa-paper-plane mr-3"></i>
+                Discuter d'un projet
+              </a>
+              <a
+                href="#experiences"
+                class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 flex items-center"
+              >
+                <i class="fas fa-code mr-3"></i>
+                Voir mes réalisations
+              </a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 stagger-animation">
+            <div
+              class="bg-white p-6 rounded-xl border border-gray-200 shadow-md card-hover"
+            >
+              <div
+                class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 animate-float"
+              >
+                <i class="fas fa-project-diagram text-black text-xl"></i>
+              </div>
+              <h3 class="font-bold text-lg mb-3">Conception Technique</h3>
+              <p class="text-gray-600">
+                Analyse des besoins métier, conception fonctionnelle et
+                structuration technique orientée production.
+              </p>
+            </div>
+
+            <div
+              class="bg-white p-6 rounded-xl border border-gray-200 shadow-md card-hover"
+            >
+              <div
+                class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 animate-float"
+                style="animation-delay: 0.1s"
+              >
+                <i class="fas fa-code text-black text-xl"></i>
+              </div>
+              <h3 class="font-bold text-lg mb-3">Développement Full-Stack</h3>
+              <p class="text-gray-600">
+                Développement front-end et back-end, APIs métier et applications
+                web complexes.
+              </p>
+            </div>
+
+            <div
+              class="bg-white p-6 rounded-xl border border-gray-200 shadow-md card-hover"
+            >
+              <div
+                class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 animate-float"
+                style="animation-delay: 0.2s"
+              >
+                <i class="fas fa-database text-black text-xl"></i>
+              </div>
+              <h3 class="font-bold text-lg mb-3">Mise en place ERP</h3>
+              <p class="text-gray-600">
+                Développement de systèmes ERP, gestion RH, paie, facturation et
+                stocks.
+              </p>
+            </div>
+
+            <div
+              class="bg-white p-6 rounded-xl border border-gray-200 shadow-md card-hover"
+            >
+              <div
+                class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 animate-float"
+                style="animation-delay: 0.3s"
+              >
+                <i class="fas fa-brain text-black text-xl"></i>
+              </div>
+              <h3 class="font-bold text-lg mb-3">IA et Analyse de Données</h3>
+              <p class="text-gray-600">
+                Collecte de donnée, mise en place de solutions IA,
+                automatisation et aide à la décision métier.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-
-
 
     <!-- Section Expériences -->
     <section id="experiences" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center mb-12 pb-2 border-b border-gray-200">
-                <h2 class="text-3xl font-bold">Réalisations</h2>
-                <div class="ml-4 w-24 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"></div>
-            </div>
-            
-            <!-- E-tantana - 4 projets complets -->
-            <div class="mb-16 animate__animated animate__fadeInUp project-card">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Solutions IA</h3>
-                        <div class="flex items-center mt-2">
-                            <span class="text-gray-600">E-tantana, Madagascar</span> 
-                        </div>
-                    </div>
-                    <div class="mt-4 md:mt-0">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm">Product Manager Technique Senior</span>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm">
-                    <p class="text-gray-700 mb-6">
-                        Accompagnement technique sur 4 projets d'intégration d'IA dans des produits métier à fort impact.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 stagger-animation">
-                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm card-hover">
-                            <h4 class="font-bold mb-3 text-gray-900">Soutien Juridique Intelligent</h4>
-                            <p class="text-sm text-gray-600 mb-2">Solution basée sur des IA génératives pour fournir des conseils en se référant aux lois malgaches.</p>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Python</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">LLM</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">RAG</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">LangChain</span>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm card-hover">
-                            <h4 class="font-bold mb-3 text-gray-900">Système de Ticketing Intelligent</h4>
-                            <p class="text-sm text-gray-600 mb-2">Système intégrant l'IA pour évaluer automatiquement les performances et optimiser l'attribution des tâches.</p>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Python</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">NLP</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">IA</span>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm card-hover">
-                            <h4 class="font-bold mb-3 text-gray-900">Modération de Contenu Intelligent</h4>
-                            <p class="text-sm text-gray-600 mb-2">Solution combinant analyse de texte et d'image pour modérer et valider les contenus avant publication.</p>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Python</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">LLM</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">RAG</span>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm card-hover">
-                            <h4 class="font-bold mb-3 text-gray-900">Application Éducative Intelligente</h4>
-                            <p class="text-sm text-gray-600 mb-2">Application web et mobile pour assister étudiants et professeurs avec génération automatique de leçons et quiz.</p>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">React</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Node.js</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">MongoDB</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Python</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pt-6 border-t border-gray-200">
-                        <h4 class="font-bold mb-3 text-gray-900">Stack Technique Complète</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Python</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">MEAN/MERN</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">LLM</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Embeddings</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">RAG</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">LangChain</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">ChromaDB</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Adrware - 2 phases -->
-            <div class="mb-16 animate__animated animate__fadeInUp project-card">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Consultant Développeur Full-Stack</h3>
-                        <div class="flex items-center mt-2">
-                            <span class="text-gray-600">Adrware, Madagascar France</span>
-                            <span class="mx-2">•</span>
-                            <span class="text-black font-medium">2022 - Présent</span>
-                        </div>
-                    </div>
-                    <div class="mt-4 md:mt-0">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm">Consultant</span>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm">
-                    <div class="mb-8">
-                        <h4 class="font-bold text-lg mb-4 text-gray-900">Module SaaS de construction (11/2024 - Présent)</h4>
-                        <p class="text-gray-700 mb-4">
-                            Développement des modules Vente et Facturation. Mise en place de l'espace clients et maître d'œuvre sur la budgétisation.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">React</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Angular</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Symfony</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">MySQL</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Git</span>
-                        </div>
-                    </div>
-
-                    <div class="mb-8">
-                        <h4 class="font-bold text-lg mb-4 text-gray-900">Outil d'optimisation SEO et analyse de données (07/2022 - 11/2024)</h4>
-                        <p class="text-gray-700 mb-4">
-                            Développement et intégration des fonctionnalités clés, traduction des maquettes en code fonctionnel et migration réussie vers React.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">React</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Node.js</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Python</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">MongoDB</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">MariaDB</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- E-technologie-gab -->
-            <div class="mb-16 animate__animated animate__fadeInUp project-card">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Développeur Full-Stack</h3>
-                        <div class="flex items-center mt-2">
-                            <span class="text-gray-600">E-technologie-gab, Gabon</span>
-                            <span class="mx-2">•</span>
-                            <span class="text-black font-medium">Janvier 2022 - Juin 2022</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm">
-                    <p class="text-gray-700 mb-6">
-                        Conception et développement d'un ERP personnalisé pour les petites entreprises, avec conversion des idées de design en code fonctionnel.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 mb-8 stagger-animation">
-                        <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
-                            <h4 class="font-bold mb-2 text-gray-900">Modules Développés</h4>
-                            <p class="text-sm text-gray-600">Gestion des stocks et des ventes, incluant un système de caisse complète.</p>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
-                            <h4 class="font-bold mb-2 text-gray-900">Architecture</h4>
-                            <p class="text-sm text-gray-600">Plateforme ERP adaptée spécifiquement aux besoins des PME.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="pt-6 border-t border-gray-200">
-                        <h4 class="font-bold mb-3 text-gray-900">Stack Technique</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Java</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">PHP</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Laravel</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">CI4</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Java Spring</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">MariaDB</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- BICI - 2 périodes -->
-            <div class="mb-16 animate__animated animate__fadeInUp project-card">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Consultant Développeur Full-Stack</h3>
-                        <div class="flex items-center mt-2">
-                            <span class="text-gray-600">BICI, Madagascar</span>
-                            <span class="mx-2">•</span>
-                            <span class="text-black font-medium">2019 - 2022</span>
-                        </div>
-                    </div>
-                    <div class="mt-4 md:mt-0">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm">Consultant</span>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm">
-                    <div class="mb-8">
-                        <p class="text-gray-700 mb-4">
-                            Participe au développement et maintenance de sites e-commerce, intégration de systèmes, et création de modules métier spécifiques.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 stagger-animation">
-                            <div class="bg-white p-3 rounded shadow-sm card-hover">
-                                <h5 class="font-bold mb-1 text-sm">ketrika.com</h5>
-                                <p class="text-xs text-gray-600">Site e-commerce</p>
-                            </div>
-                            <div class="bg-white p-3 rounded shadow-sm card-hover">
-                                <h5 class="font-bold mb-1 text-sm">SPAT Tamatave</h5>
-                                <p class="text-xs text-gray-600">Intégration nouveau système</p>
-                            </div>
-                            <div class="bg-white p-3 rounded shadow-sm card-hover">
-                                <h5 class="font-bold mb-1 text-sm">AMADIA</h5>
-                                <p class="text-xs text-gray-600">Module facturation client et gestion stocks médicaments</p>
-                            </div>
-                            <div class="bg-white p-3 rounded shadow-sm card-hover">
-                                <h5 class="font-bold mb-1 text-sm">Pho Restaurant</h5>
-                                <p class="text-xs text-gray-600">Système gestion processus commandes et stock</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pt-6 border-t border-gray-200">
-                        <h4 class="font-bold mb-3 text-gray-900">Stack Technique</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Java</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">PHP</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Laravel</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Symfony</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Oracle</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Freelance -->
-            <div class="animate__animated animate__fadeInUp project-card">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Développeur Full-Stack</h3>
-                        <div class="flex items-center mt-2">
-                            <span class="text-gray-600">Mali, Madagascar</span>
-                            <span class="mx-2">•</span>
-                            <span class="text-black font-medium">2018</span>
-                        </div>
-                    </div>
-                    <div class="mt-4 md:mt-0">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm">Freelance</span>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm">
-                    <p class="text-gray-700 mb-6">
-                        Développement d'un système de gestion immobilière pour particuliers au Mali avec suivi de plus de 400 bâtiments.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 mb-8 stagger-animation">
-                        <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
-                            <h4 class="font-bold mb-2 text-gray-900">Gestion Locative</h4>
-                            <p class="text-sm text-gray-600">Suivi des loyers, paiements et contrats de location</p>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
-                            <h4 class="font-bold mb-2 text-gray-900">Facturation Services</h4>
-                            <p class="text-sm text-gray-600">Gestion des factures d'eau et charges associées</p>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
-                            <h4 class="font-bold mb-2 text-gray-900">Notifications Automatiques</h4>
-                            <p class="text-sm text-gray-600">Rappels SMS pour paiement des loyers et services</p>
-                        </div>
-                    </div>
-                    
-                    <div class="pt-6 border-t border-gray-200">
-                        <h4 class="font-bold mb-3 text-gray-900">Stack Technique</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">PHP</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Laravel</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">MariaDB</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center mb-12 pb-2 border-b border-gray-200">
+          <h2 class="text-3xl font-bold">Réalisations</h2>
+          <div
+            class="ml-4 w-24 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"
+          ></div>
         </div>
+
+        <!-- E-tantana - 4 projets complets -->
+        <div class="mb-16 animate__animated animate__fadeInUp project-card">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+          >
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">Solutions IA</h3>
+              <div class="flex items-center mt-2">
+                <span class="text-gray-600">E-tantana, Madagascar</span>
+              </div>
+            </div>
+            <div class="mt-4 md:mt-0">
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm"
+                >Product Manager Technique Senior</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm"
+          >
+            <p class="text-gray-700 mb-6">
+              Accompagnement technique sur 4 projets d'intégration d'IA dans des
+              produits métier à fort impact.
+            </p>
+
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 stagger-animation"
+            >
+              <div
+                class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm card-hover"
+              >
+                <h4 class="font-bold mb-3 text-gray-900">
+                  Soutien Juridique Intelligent
+                </h4>
+                <p class="text-sm text-gray-600 mb-2">
+                  Solution basée sur des IA génératives pour fournir des
+                  conseils en se référant aux lois malgaches.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Python</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >LLM</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >RAG</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >LangChain</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm card-hover"
+              >
+                <h4 class="font-bold mb-3 text-gray-900">
+                  Système de Ticketing Intelligent
+                </h4>
+                <p class="text-sm text-gray-600 mb-2">
+                  Système intégrant l'IA pour évaluer automatiquement les
+                  performances et optimiser l'attribution des tâches.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Python</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >NLP</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >IA</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm card-hover"
+              >
+                <h4 class="font-bold mb-3 text-gray-900">
+                  Modération de Contenu Intelligent
+                </h4>
+                <p class="text-sm text-gray-600 mb-2">
+                  Solution combinant analyse de texte et d'image pour modérer et
+                  valider les contenus avant publication.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Python</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >LLM</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >RAG</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm card-hover"
+              >
+                <h4 class="font-bold mb-3 text-gray-900">
+                  Application Éducative Intelligente
+                </h4>
+                <p class="text-sm text-gray-600 mb-2">
+                  Application web et mobile pour assister étudiants et
+                  professeurs avec génération automatique de leçons et quiz.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >React</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Node.js</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >MongoDB</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Python</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-200">
+              <h4 class="font-bold mb-3 text-gray-900">
+                Stack Technique Complète
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >MEAN/MERN</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >LLM</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Embeddings</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >RAG</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >LangChain</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >ChromaDB</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >MongoDB</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adrware - 2 phases -->
+        <div class="mb-16 animate__animated animate__fadeInUp project-card">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+          >
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">
+                Consultant Développeur Full-Stack
+              </h3>
+              <div class="flex items-center mt-2">
+                <span class="text-gray-600">Adrware, Madagascar France</span>
+                <span class="mx-2">•</span>
+                <span class="text-black font-medium">2022 - Présent</span>
+              </div>
+            </div>
+            <div class="mt-4 md:mt-0">
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm"
+                >Consultant</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm"
+          >
+            <div class="mb-8">
+              <h4 class="font-bold text-lg mb-4 text-gray-900">
+                Module SaaS de construction (11/2024 - Présent)
+              </h4>
+              <p class="text-gray-700 mb-4">
+                Développement des modules Vente et Facturation. Mise en place de
+                l'espace clients et maître d'œuvre sur la budgétisation.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Angular</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Symfony</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >MySQL</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Git</span
+                >
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <h4 class="font-bold text-lg mb-4 text-gray-900">
+                Outil d'optimisation SEO et analyse de données (07/2022 -
+                11/2024)
+              </h4>
+              <p class="text-gray-700 mb-4">
+                Développement et intégration des fonctionnalités clés,
+                traduction des maquettes en code fonctionnel et migration
+                réussie vers React.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >MongoDB</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >MariaDB</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-technologie-gab -->
+        <div class="mb-16 animate__animated animate__fadeInUp project-card">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+          >
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">
+                Développeur Full-Stack
+              </h3>
+              <div class="flex items-center mt-2">
+                <span class="text-gray-600">E-technologie-gab, Gabon</span>
+                <span class="mx-2">•</span>
+                <span class="text-black font-medium"
+                  >Janvier 2022 - Juin 2022</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm"
+          >
+            <p class="text-gray-700 mb-6">
+              Conception et développement d'un ERP personnalisé pour les petites
+              entreprises, avec conversion des idées de design en code
+              fonctionnel.
+            </p>
+
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 mb-8 stagger-animation"
+            >
+              <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                <h4 class="font-bold mb-2 text-gray-900">Modules Développés</h4>
+                <p class="text-sm text-gray-600">
+                  Gestion des stocks et des ventes, incluant un système de
+                  caisse complète.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                <h4 class="font-bold mb-2 text-gray-900">Architecture</h4>
+                <p class="text-sm text-gray-600">
+                  Plateforme ERP adaptée spécifiquement aux besoins des PME.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-200">
+              <h4 class="font-bold mb-3 text-gray-900">Stack Technique</h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Java</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >PHP</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Laravel</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >CI4</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Java Spring</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >MariaDB</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BICI - 2 périodes -->
+        <div class="mb-16 animate__animated animate__fadeInUp project-card">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+          >
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">
+                Consultant Développeur Full-Stack
+              </h3>
+              <div class="flex items-center mt-2">
+                <span class="text-gray-600">BICI, Madagascar</span>
+                <span class="mx-2">•</span>
+                <span class="text-black font-medium">2019 - 2022</span>
+              </div>
+            </div>
+            <div class="mt-4 md:mt-0">
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm"
+                >Consultant</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm"
+          >
+            <div class="mb-8">
+              <p class="text-gray-700 mb-4">
+                Participe au développement et maintenance de sites e-commerce,
+                intégration de systèmes, et création de modules métier
+                spécifiques.
+              </p>
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 stagger-animation"
+              >
+                <div class="bg-white p-3 rounded shadow-sm card-hover">
+                  <h5 class="font-bold mb-1 text-sm">ketrika.com</h5>
+                  <p class="text-xs text-gray-600">Site e-commerce</p>
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm card-hover">
+                  <h5 class="font-bold mb-1 text-sm">SPAT Tamatave</h5>
+                  <p class="text-xs text-gray-600">
+                    Intégration nouveau système
+                  </p>
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm card-hover">
+                  <h5 class="font-bold mb-1 text-sm">AMADIA</h5>
+                  <p class="text-xs text-gray-600">
+                    Module facturation client et gestion stocks médicaments
+                  </p>
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm card-hover">
+                  <h5 class="font-bold mb-1 text-sm">Pho Restaurant</h5>
+                  <p class="text-xs text-gray-600">
+                    Système gestion processus commandes et stock
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-200">
+              <h4 class="font-bold mb-3 text-gray-900">Stack Technique</h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Java</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >PHP</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Laravel</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Symfony</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Oracle</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >PostgreSQL</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Freelance -->
+        <div class="animate__animated animate__fadeInUp project-card">
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+          >
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">
+                Développeur Full-Stack
+              </h3>
+              <div class="flex items-center mt-2">
+                <span class="text-gray-600">Mali, Madagascar</span>
+                <span class="mx-2">•</span>
+                <span class="text-black font-medium">2018</span>
+              </div>
+            </div>
+            <div class="mt-4 md:mt-0">
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full shadow-sm"
+                >Freelance</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-50 rounded-xl p-6 border border-gray-200 shadow-sm"
+          >
+            <p class="text-gray-700 mb-6">
+              Développement d'un système de gestion immobilière pour
+              particuliers au Mali avec suivi de plus de 400 bâtiments.
+            </p>
+
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 mb-8 stagger-animation"
+            >
+              <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                <h4 class="font-bold mb-2 text-gray-900">Gestion Locative</h4>
+                <p class="text-sm text-gray-600">
+                  Suivi des loyers, paiements et contrats de location
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                <h4 class="font-bold mb-2 text-gray-900">
+                  Facturation Services
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Gestion des factures d'eau et charges associées
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow-sm card-hover">
+                <h4 class="font-bold mb-2 text-gray-900">
+                  Notifications Automatiques
+                </h4>
+                <p class="text-sm text-gray-600">
+                  Rappels SMS pour paiement des loyers et services
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-200">
+              <h4 class="font-bold mb-3 text-gray-900">Stack Technique</h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >PHP</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Laravel</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >MariaDB</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                  >Bootstrap</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Section Compétences en Onglets -->
     <section id="competences" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center mb-12 pb-2 border-b border-gray-300">
-                <h2 class="text-3xl font-bold">Compétences Techniques</h2>
-                <div class="ml-4 w-24 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"></div>
-            </div>
-            
-            <div class="mb-8">
-                <div class="flex flex-wrap border-b border-gray-300">
-                    <button class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-black text-black transition-all duration-300 hover:bg-gray-100" data-tab="fullstack">
-                        <i class="fas fa-layer-group mr-2"></i>Full-Stack
-                    </button>
-                    <button class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100" data-tab="frontend">
-                        <i class="fas fa-code mr-2"></i>Front-End
-                    </button>
-                    <button class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100" data-tab="backend">
-                        <i class="fas fa-server mr-2"></i>Back-End
-                    </button>
-                    <button class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100" data-tab="database">
-                        <i class="fas fa-database mr-2"></i>Bases de Données
-                    </button>
-                    <button class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100" data-tab="ia">
-                        <i class="fas fa-robot mr-2"></i>Intelligence Artificielle
-                    </button> 
-                    <button class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100" data-tab="outils">
-                        <i class="fas fa-tools mr-2"></i>Outils
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Contenu des onglets -->
-            <div id="fullstack" class="tab-content animate__animated animate__fadeIn">
-                <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold mb-4">Développement Full-Stack</h3>
-                        <p class="text-gray-700">
-                            Architecture complète d'applications web, du front-end au back-end, avec intégration de bases de données et déploiement en production.
-                        </p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-animation">
-                        <div>
-                            <h4 class="text-xl font-bold mb-4 text-black">Stacks Principales</h4>
-                            <div class="space-y-4">
-                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg shadow-sm card-hover">
-                                    <span class="font-medium">MEAN/MERN</span>
-                                    <span class="text-black text-sm font-medium">Expert</span>
-                                </div>
-                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg shadow-sm card-hover">
-                                    <span class="font-medium">LAMP/LEMP</span>
-                                    <span class="text-black text-sm font-medium">Expert</span>
-                                </div>
-                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg shadow-sm card-hover">
-                                    <span class="font-medium">Java Spring Boot</span>
-                                    <span class="text-black text-sm font-medium">Expert</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h4 class="text-xl font-bold mb-4 text-black">Contexte d'Application</h4>
-                            <div class="space-y-4">
-                                <div class="p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                                    <div class="font-medium mb-2">Applications SaaS B2B</div>
-                                    <div class="text-sm text-gray-600">Plateformes métier avec interfaces complexes</div>
-                                </div>
-                                <div class="p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                                    <div class="font-medium mb-2">ERP et systèmes métier</div>
-                                    <div class="text-sm text-gray-600">Solutions de gestion complètes</div>
-                                </div>
-                                <div class="p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                                    <div class="font-medium mb-2">Outils d'Analyse de Données</div>
-                                    <div class="text-sm text-gray-600">Plateformes de reporting et d'analyse</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="frontend" class="tab-content hidden animate__animated animate__fadeIn">
-                <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold mb-4">Développement Front-End</h3>
-                        <p class="text-gray-700">
-                            Applications SPA complexes, dashboards métier, interfaces SaaS B2B avec une attention particulière à l'expérience utilisateur et aux performances.
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">React</div>
-                                <div class="text-sm text-gray-600">Applications SPA complexes, interfaces métier</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">Angular</div>
-                                <div class="text-sm text-gray-600">Applications d'entreprise, systèmes complexes</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">JavaScript, TypeScript</div>
-                                <div class="text-sm text-gray-600">Développement d'applications modernes</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">HTML5, CSS3, Bootstrap</div>
-                                <div class="text-sm text-gray-600">Interfaces utilisateur accessibles et performantes</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="backend" class="tab-content hidden animate__animated animate__fadeIn">
-                <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold mb-4">Développement Back-End</h3>
-                        <p class="text-gray-700">
-                            APIs métier, systèmes transactionnels, traitements asynchrones, et intégrations tierces avec une approche orientée performance et sécurité.
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">Python</div>
-                                <div class="text-sm text-gray-600">Back-end métier, traitement de données, intégration IA</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">Node.js</div>
-                                <div class="text-sm text-gray-600">APIs, microservices, applications temps réel</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">Java, Spring</div>
-                                <div class="text-sm text-gray-600">Systèmes d'entreprise, applications transactionnelles</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">PHP, Laravel, Symfony</div>
-                                <div class="text-sm text-gray-600">Applications web, maintenance de systèmes</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="database" class="tab-content hidden animate__animated animate__fadeIn">
-                <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold mb-4">Bases de Données</h3>
-                        <p class="text-gray-700">
-                            Modélisation, optimisation, et migration de bases de données relationnelles et NoSQL pour des applications en production.
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">MongoDB</div>
-                                <div class="text-sm text-gray-600">Base de données NoSQL, applications modernes</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">PostgreSQL, MySQL, MariaDB</div>
-                                <div class="text-sm text-gray-600">Bases de données relationnelles, systèmes transactionnels</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">Oracle</div>
-                                <div class="text-sm text-gray-600">Systèmes d'entreprise, applications critiques</div>
-                            </div>
-                            <span class="text-black font-medium">Confirmé</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">PL/SQL, Optimisation</div>
-                                <div class="text-sm text-gray-600">Requêtes complexes, performance des bases de données</div>
-                            </div>
-                            <span class="text-black font-medium">Expert</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="ia" class="tab-content hidden animate__animated animate__fadeIn">
-                <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold mb-4">Intelligence Artificielle</h3>
-                        <p class="text-gray-700">
-                            Intégration de solutions IA dans des applications full-stack existantes, avec prise en compte des contraintes de production et de maintenabilité.
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">Machine Learning (scikit-learn)</div>
-                                <div class="text-sm text-gray-600">Modèles prédictifs, classification, analyse de données</div>
-                            </div>
-                            <span class="text-black font-medium">Confirmé</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">LLM et IA Générative</div>
-                                <div class="text-sm text-gray-600">Ollama, Hugging Face, intégration via API</div>
-                            </div>
-                            <span class="text-black font-medium">Confirmé</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">RAG et Embeddings</div>
-                                <div class="text-sm text-gray-600">Recherche augmentée, bases vectorielles</div>
-                            </div>
-                            <span class="text-black font-medium">Confirmé</span>
-                        </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
-                            <div>
-                                <div class="font-medium">LangChain, ChromaDB</div>
-                                <div class="text-sm text-gray-600">Frameworks d'intégration IA, gestion de contexte</div>
-                            </div>
-                            <span class="text-black font-medium">Confirmé</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-              
-            <div id="outils" class="tab-content hidden animate__animated animate__fadeIn">
-                <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold mb-4">Outils et Méthodologies</h3>
-                        <p class="text-gray-700">
-                            Suite complète d'outils pour le développement, la gestion de projet, le versioning et le déploiement en production.
-                        </p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-bold mb-3 text-gray-900">Versioning et Collaboration</h4>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Git</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">SVN</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">GitHub</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">GitLab</span>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold mb-3 text-gray-900">Déploiement et Infrastructure</h4>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Docker</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">VPS</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Heroku</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">CI/CD</span>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold mb-3 text-gray-900">Gestion de Projet</h4>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Jira</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Trello</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Agile</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Scrum</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Kanban</span>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold mb-3 text-gray-900">API et Testing</h4>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">Postman</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">RESTful APIs</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">DBeaver</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag">n8n (automatisation)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center mb-12 pb-2 border-b border-gray-300">
+          <h2 class="text-3xl font-bold">Compétences Techniques</h2>
+          <div
+            class="ml-4 w-24 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"
+          ></div>
         </div>
+
+        <div class="mb-8">
+          <div
+            class="flex gap-2 overflow-x-auto whitespace-nowrap border-b border-gray-300 scrollbar-hide md:flex-wrap"
+          >
+            <button
+              class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-black text-black transition-all duration-300 hover:bg-gray-100"
+              data-tab="fullstack"
+            >
+              <i class="fas fa-layer-group mr-2"></i>Full-Stack
+            </button>
+            <button
+              class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100"
+              data-tab="frontend"
+            >
+              <i class="fas fa-code mr-2"></i>Front-End
+            </button>
+            <button
+              class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100"
+              data-tab="backend"
+            >
+              <i class="fas fa-server mr-2"></i>Back-End
+            </button>
+            <button
+              class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100"
+              data-tab="database"
+            >
+              <i class="fas fa-database mr-2"></i>Bases de Données
+            </button>
+            <button
+              class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100"
+              data-tab="ia"
+            >
+              <i class="fas fa-robot mr-2"></i>Intelligence Artificielle
+            </button>
+            <button
+              class="tab-btn px-6 py-3 font-medium text-gray-700 border-b-2 border-transparent hover:text-black transition-all duration-300 hover:bg-gray-100"
+              data-tab="outils"
+            >
+              <i class="fas fa-tools mr-2"></i>Outils
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenu des onglets -->
+        <div
+          id="fullstack"
+          class="tab-content animate__animated animate__fadeIn"
+        >
+          <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg">
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold mb-4">Développement Full-Stack</h3>
+              <p class="text-gray-700">
+                Architecture complète d'applications web, du front-end au
+                back-end, avec intégration de bases de données et déploiement en
+                production.
+              </p>
+            </div>
+
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-animation"
+            >
+              <div>
+                <h4 class="text-xl font-bold mb-4 text-black">
+                  Stacks Principales
+                </h4>
+                <div class="space-y-4">
+                  <div
+                    class="flex justify-between items-center p-3 bg-gray-50 rounded-lg shadow-sm card-hover"
+                  >
+                    <span class="font-medium">MEAN/MERN</span>
+                    <span class="text-black text-sm font-medium">Expert</span>
+                  </div>
+                  <div
+                    class="flex justify-between items-center p-3 bg-gray-50 rounded-lg shadow-sm card-hover"
+                  >
+                    <span class="font-medium">LAMP/LEMP</span>
+                    <span class="text-black text-sm font-medium">Expert</span>
+                  </div>
+                  <div
+                    class="flex justify-between items-center p-3 bg-gray-50 rounded-lg shadow-sm card-hover"
+                  >
+                    <span class="font-medium">Java Spring Boot</span>
+                    <span class="text-black text-sm font-medium">Expert</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="text-xl font-bold mb-4 text-black">
+                  Contexte d'Application
+                </h4>
+                <div class="space-y-4">
+                  <div class="p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
+                    <div class="font-medium mb-2">Applications SaaS B2B</div>
+                    <div class="text-sm text-gray-600">
+                      Plateformes métier avec interfaces complexes
+                    </div>
+                  </div>
+                  <div class="p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
+                    <div class="font-medium mb-2">ERP et systèmes métier</div>
+                    <div class="text-sm text-gray-600">
+                      Solutions de gestion complètes
+                    </div>
+                  </div>
+                  <div class="p-4 bg-gray-50 rounded-lg shadow-sm card-hover">
+                    <div class="font-medium mb-2">
+                      Outils d'Analyse de Données
+                    </div>
+                    <div class="text-sm text-gray-600">
+                      Plateformes de reporting et d'analyse
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="frontend"
+          class="tab-content hidden animate__animated animate__fadeIn"
+        >
+          <div
+            class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation"
+          >
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold mb-4">Développement Front-End</h3>
+              <p class="text-gray-700">
+                Applications SPA complexes, dashboards métier, interfaces SaaS
+                B2B avec une attention particulière à l'expérience utilisateur
+                et aux performances.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">React</div>
+                  <div class="text-sm text-gray-600">
+                    Applications SPA complexes, interfaces métier
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">Angular</div>
+                  <div class="text-sm text-gray-600">
+                    Applications d'entreprise, systèmes complexes
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">JavaScript, TypeScript</div>
+                  <div class="text-sm text-gray-600">
+                    Développement d'applications modernes
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">HTML5, CSS3, Bootstrap</div>
+                  <div class="text-sm text-gray-600">
+                    Interfaces utilisateur accessibles et performantes
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="backend"
+          class="tab-content hidden animate__animated animate__fadeIn"
+        >
+          <div
+            class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation"
+          >
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold mb-4">Développement Back-End</h3>
+              <p class="text-gray-700">
+                APIs métier, systèmes transactionnels, traitements asynchrones,
+                et intégrations tierces avec une approche orientée performance
+                et sécurité.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">Python</div>
+                  <div class="text-sm text-gray-600">
+                    Back-end métier, traitement de données, intégration IA
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">Node.js</div>
+                  <div class="text-sm text-gray-600">
+                    APIs, microservices, applications temps réel
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">Java, Spring</div>
+                  <div class="text-sm text-gray-600">
+                    Systèmes d'entreprise, applications transactionnelles
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">PHP, Laravel, Symfony</div>
+                  <div class="text-sm text-gray-600">
+                    Applications web, maintenance de systèmes
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="database"
+          class="tab-content hidden animate__animated animate__fadeIn"
+        >
+          <div
+            class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation"
+          >
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold mb-4">Bases de Données</h3>
+              <p class="text-gray-700">
+                Modélisation, optimisation, et migration de bases de données
+                relationnelles et NoSQL pour des applications en production.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">MongoDB</div>
+                  <div class="text-sm text-gray-600">
+                    Base de données NoSQL, applications modernes
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">PostgreSQL, MySQL, MariaDB</div>
+                  <div class="text-sm text-gray-600">
+                    Bases de données relationnelles, systèmes transactionnels
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">Oracle</div>
+                  <div class="text-sm text-gray-600">
+                    Systèmes d'entreprise, applications critiques
+                  </div>
+                </div>
+                <span class="text-black font-medium">Confirmé</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">PL/SQL, Optimisation</div>
+                  <div class="text-sm text-gray-600">
+                    Requêtes complexes, performance des bases de données
+                  </div>
+                </div>
+                <span class="text-black font-medium">Expert</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="ia"
+          class="tab-content hidden animate__animated animate__fadeIn"
+        >
+          <div
+            class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation"
+          >
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold mb-4">Intelligence Artificielle</h3>
+              <p class="text-gray-700">
+                Intégration de solutions IA dans des applications full-stack
+                existantes, avec prise en compte des contraintes de production
+                et de maintenabilité.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">Machine Learning (scikit-learn)</div>
+                  <div class="text-sm text-gray-600">
+                    Modèles prédictifs, classification, analyse de données
+                  </div>
+                </div>
+                <span class="text-black font-medium">Confirmé</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">LLM et IA Générative</div>
+                  <div class="text-sm text-gray-600">
+                    Ollama, Hugging Face, intégration via API
+                  </div>
+                </div>
+                <span class="text-black font-medium">Confirmé</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">RAG et Embeddings</div>
+                  <div class="text-sm text-gray-600">
+                    Recherche augmentée, bases vectorielles
+                  </div>
+                </div>
+                <span class="text-black font-medium">Confirmé</span>
+              </div>
+
+              <div
+                class="flex justify-between items-center p-4 bg-gray-50 rounded-lg shadow-sm card-hover"
+              >
+                <div>
+                  <div class="font-medium">LangChain, ChromaDB</div>
+                  <div class="text-sm text-gray-600">
+                    Frameworks d'intégration IA, gestion de contexte
+                  </div>
+                </div>
+                <span class="text-black font-medium">Confirmé</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="outils"
+          class="tab-content hidden animate__animated animate__fadeIn"
+        >
+          <div
+            class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg stagger-animation"
+          >
+            <div class="mb-6">
+              <h3 class="text-2xl font-bold mb-4">Outils et Méthodologies</h3>
+              <p class="text-gray-700">
+                Suite complète d'outils pour le développement, la gestion de
+                projet, le versioning et le déploiement en production.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-bold mb-3 text-gray-900">
+                  Versioning et Collaboration
+                </h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Git</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >SVN</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >GitHub</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >GitLab</span
+                  >
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-bold mb-3 text-gray-900">
+                  Déploiement et Infrastructure
+                </h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Docker</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >VPS</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Heroku</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >CI/CD</span
+                  >
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-bold mb-3 text-gray-900">Gestion de Projet</h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Jira</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Trello</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Agile</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Scrum</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Kanban</span
+                  >
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-bold mb-3 text-gray-900">API et Testing</h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >Postman</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >RESTful APIs</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >DBeaver</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded skill-tag"
+                    >n8n (automatisation)</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Formation et Accompagnement -->
+    <section id="formation" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center mb-12 pb-2 border-b border-gray-300">
+          <h2 class="text-3xl font-bold">Encadrement, Formation et Mentorat</h2>
+          <div
+            class="ml-4 w-24 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"
+          ></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-animation">
+          <!-- Bénévolat -->
+          <div
+            class="bg-white rounded-xl p-8 border border-gray-200 shadow-md card-hover"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float"
+            >
+              <i class="fas fa-hands-helping text-black text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">
+              Accompagnement à la découverte du numérique
+            </h3>
+            <p class="text-gray-700 mb-4">
+              Intervention bénévole au côté de
+              <strong>Tech Institut</strong> pour initier les jeunes aux bases
+              du numérique, de la programmation et de la logique informatique.
+            </p>
+            <p class="text-sm text-gray-600">
+              Sensibilisation, accompagnement et orientation vers les métiers du
+              digital.
+            </p>
+          </div>
+
+          <!-- Encadrement -->
+          <div
+            class="bg-white rounded-xl p-8 border border-gray-200 shadow-md card-hover"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float"
+              style="animation-delay: 0.2s"
+            >
+              <i class="fas fa-user-graduate text-black text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">
+              Supervision de Stages en Développement
+            </h3>
+            <p class="text-gray-700 mb-4">
+              Accompagnement et encadrement professionnel de plusieurs étudiants
+              <strong>nationaux et internationaux</strong> dans le cadre de
+              stages techniques.
+            </p>
+            <p class="text-sm text-gray-600">
+              Suivi technique, montée en compétences, bonnes pratiques et
+              préparation au monde professionnel.
+            </p>
+          </div>
+
+          <!-- Formation -->
+          <div
+            class="bg-white rounded-xl p-8 border border-gray-200 shadow-md card-hover"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float"
+              style="animation-delay: 0.4s"
+            >
+              <i class="fas fa-chalkboard-teacher text-black text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Formateur Technique</h3>
+            <p class="text-gray-700 mb-4">
+              Formateur en ligne sur différents axes technologiques :
+              développement web, back-end et intelligence artificielle.
+            </p>
+            <p class="text-sm text-gray-600">
+              Interventions ponctuelles pour <strong>Gik Ml</strong> et
+              <strong>RNA Dev</strong>, ainsi qu’un accompagnement individuel de
+              particuliers sur des besoins techniques ciblés.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Section Expertise -->
     <section id="expertise" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center mb-12 pb-2 border-b border-gray-200">
-                <h2 class="text-3xl font-bold">Expertise et Méthodologie</h2>
-                <div class="ml-4 w-24 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation">
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 shadow-md card-hover">
-                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float">
-                        <i class="fas fa-project-diagram text-black text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Méthodologies Agile</h3>
-                    <p class="text-gray-700 mb-4">
-                        Application des méthodologies Agile, Scrum et Kanban pour une gestion de projet efficace et itérative.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag">Scrum</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag">Kanban</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag">DDD</span>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 shadow-md card-hover">
-                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float" style="animation-delay: 0.2s">
-                        <i class="fas fa-code-branch text-black text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Architecture Logicielle</h3>
-                    <p class="text-gray-700 mb-4">
-                        Conception d'architectures évolutives, microservices, et migration de systèmes legacy vers des architectures modernes.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag">Microservices</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag">API First</span>
-                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag">Clean Architecture</span>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 rounded-xl p-8 border border-gray-200 shadow-md card-hover">
-                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float" style="animation-delay: 0.4s">
-                        <i class="fas fa-language text-black text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Langues</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center p-2 rounded-lg hover:bg-gray-100 transition-colors">
-                            <span class="font-medium">Malagasy</span>
-                            <span class="text-black font-medium">Langue maternelle</span>
-                        </div>
-                        <div class="flex justify-between items-center p-2 rounded-lg hover:bg-gray-100 transition-colors">
-                            <span class="font-medium">Français</span>
-                            <span class="text-black font-medium">Courant</span>
-                        </div>
-                        <div class="flex justify-between items-center p-2 rounded-lg hover:bg-gray-100 transition-colors">
-                            <span class="font-medium">Anglais</span>
-                            <span class="text-black font-medium">Professionnel</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center mb-12 pb-2 border-b border-gray-200">
+          <h2 class="text-3xl font-bold">Expertise et Méthodologie</h2>
+          <div
+            class="ml-4 w-24 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"
+          ></div>
         </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation"
+        >
+          <div
+            class="bg-gray-50 rounded-xl p-8 border border-gray-200 shadow-md card-hover"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float"
+            >
+              <i class="fas fa-project-diagram text-black text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Méthodologies Agile</h3>
+            <p class="text-gray-700 mb-4">
+              Application des méthodologies Agile, Scrum et Kanban pour une
+              gestion de projet efficace et itérative.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag"
+                >Scrum</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag"
+                >Kanban</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag"
+                >DDD</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-50 rounded-xl p-8 border border-gray-200 shadow-md card-hover"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float"
+              style="animation-delay: 0.2s"
+            >
+              <i class="fas fa-code-branch text-black text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Architecture Logicielle</h3>
+            <p class="text-gray-700 mb-4">
+              Conception d'architectures évolutives, microservices, et migration
+              de systèmes legacy vers des architectures modernes.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag"
+                >Microservices</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag"
+                >API First</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded skill-tag"
+                >Clean Architecture</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-50 rounded-xl p-8 border border-gray-200 shadow-md card-hover"
+          >
+            <div
+              class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6 animate-float"
+              style="animation-delay: 0.4s"
+            >
+              <i class="fas fa-language text-black text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Langues</h3>
+            <div class="space-y-4">
+              <div
+                class="flex justify-between items-center p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <span class="font-medium">Malagasy</span>
+                <span class="text-black font-medium">Langue maternelle</span>
+              </div>
+              <div
+                class="flex justify-between items-center p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <span class="font-medium">Français</span>
+                <span class="text-black font-medium">Courant</span>
+              </div>
+              <div
+                class="flex justify-between items-center p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <span class="font-medium">Anglais</span>
+                <span class="text-black font-medium">Professionnel</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Section Contact -->
     <section id="contact" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold mb-4">Contact</h2>
-                    <div class="section-divider w-32 h-0.5 mx-auto mb-4"></div>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Disponible pour des missions de développement full-stack, intégration d'IA, ou modernisation de systèmes.
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Contact</h2>
+            <div class="section-divider w-32 h-0.5 mx-auto mb-4"></div>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+              Disponible pour des missions de développement full-stack,
+              intégration d'IA, ou modernisation de systèmes.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 stagger-animation">
+            <div
+              class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg card-hover"
+            >
+              <h3 class="text-2xl font-bold mb-6">Coordonnées</h3>
+
+              <div class="space-y-6">
+                <div
+                  class="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <div
+                    class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4 animate-float"
+                  >
+                    <i class="fas fa-envelope text-black"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">Email</h4>
+                    <p class="text-gray-700">tsiryandriamahafaly@gmail.com</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <div
+                    class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4 animate-float"
+                    style="animation-delay: 0.2s"
+                  >
+                    <i class="fas fa-phone text-black"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">Téléphone</h4>
+                    <p class="text-gray-700">+261 34 09 065 59</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <div
+                    class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4 animate-float"
+                    style="animation-delay: 0.4s"
+                  >
+                    <i class="fas fa-map-marker-alt text-black"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">Localisation</h4>
+                    <p class="text-gray-700">Antananarivo, Madagascar</p>
+                    <p class="text-gray-500 text-sm mt-1">
+                      Travail à distance disponible
                     </p>
+                  </div>
                 </div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 stagger-animation">
-                    <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg card-hover">
-                        <h3 class="text-2xl font-bold mb-6">Coordonnées</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors">
-                                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4 animate-float">
-                                    <i class="fas fa-envelope text-black"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">Email</h4>
-                                    <p class="text-gray-700">tsiryandriamahafaly@gmail.com</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors">
-                                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4 animate-float" style="animation-delay: 0.2s">
-                                    <i class="fas fa-phone text-black"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">Téléphone</h4>
-                                    <p class="text-gray-700">+261 34 09 065 59</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors">
-                                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4 animate-float" style="animation-delay: 0.4s">
-                                    <i class="fas fa-map-marker-alt text-black"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">Localisation</h4>
-                                    <p class="text-gray-700">Antananarivo, Madagascar</p>
-                                    <p class="text-gray-500 text-sm mt-1">Travail à distance disponible</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg card-hover">
-                        <h3 class="text-2xl font-bold mb-6">Disponibilités</h3>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                                <i class="fas fa-check text-black mt-1 mr-3"></i>
-                                <span>Développement full-stack (React, Node.js, Python, Java, Php)</span>
-                            </div>
-                            
-                            <div class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                                <i class="fas fa-check text-black mt-1 mr-3"></i>
-                                <span>Intégration d'IA dans des systèmes existants</span>
-                            </div>
-                            
-                            <div class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                                <i class="fas fa-check text-black mt-1 mr-3"></i>
-                                <span>ERP et systèmes métier sur mesure</span>
-                            </div>
-                            
-                            <div class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                                <i class="fas fa-check text-black mt-1 mr-3"></i>
-                                <span>Scraping et Analyse de Données avec Python</span>
-                            </div>
-                            
-                            <div class="pt-6 border-t border-gray-200 mt-6">
-                                <a href="mailto:tsiryandriamahafaly@gmail.com" class="inline-flex items-center justify-center w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                    <i class="fas fa-envelope mr-3"></i>
-                                    Envoyer un mail
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+
+            <div
+              class="bg-white rounded-xl p-8 border border-gray-200 shadow-lg card-hover"
+            >
+              <h3 class="text-2xl font-bold mb-6">Disponibilités</h3>
+
+              <div class="space-y-4">
+                <div
+                  class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <i class="fas fa-check text-black mt-1 mr-3"></i>
+                  <span
+                    >Développement full-stack (React, Node.js, Python, Java,
+                    Php)</span
+                  >
+                </div>
+
+                <div
+                  class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <i class="fas fa-check text-black mt-1 mr-3"></i>
+                  <span>Intégration d'IA dans des systèmes existants</span>
+                </div>
+
+                <div
+                  class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <i class="fas fa-check text-black mt-1 mr-3"></i>
+                  <span>ERP et systèmes métier sur mesure</span>
+                </div>
+
+                <div
+                  class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <i class="fas fa-check text-black mt-1 mr-3"></i>
+                  <span>Scraping et Analyse de Données avec Python</span>
+                </div>
+                <div
+                  class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <i class="fas fa-check text-black mt-1 mr-3"></i>
+                  <span>
+                    Accompagnement technique ponctuel sur des besoins
+                    spécifiques
+                  </span>
+                </div>
+
+                <div class="pt-6 border-t border-gray-200 mt-6">
+                  <a
+                    href="mailto:tsiryandriamahafaly@gmail.com"
+                    class="inline-flex items-center justify-center w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  >
+                    <i class="fas fa-envelope mr-3"></i>
+                    Envoyer un mail
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-black text-white py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-8 md:mb-0">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mr-3 shadow-md">
-                            <span class="text-black font-bold">TA</span>
-                        </div>
-                        <div>
-                            <div class="text-xl font-bold">Tsiry ANDRIAMAHAFALY</div>
-                            <div class="text-gray-400">Développeur Full-Stack</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center md:text-right">
-                    <div class="text-gray-400 mb-4">
-                        <p>tsiryandriamahafaly@gmail.com</p>
-                        <p class="mt-1">+261 34 09 065 59</p>
-                    </div>
-                    <div class="text-gray-500 text-sm">
-                        <p>© <span id="currentYear"></span> Tsiry ANDRIAMAHAFALY. Tous droits réservés.</p>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-8 md:mb-0">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mr-3 shadow-md"
+              >
+                <span class="text-black font-bold">TA</span>
+              </div>
+              <div>
+                <div class="text-xl font-bold">Tsiry ANDRIAMAHAFALY</div>
+                <div class="text-gray-400">Développeur Full-Stack</div>
+              </div>
             </div>
+          </div>
+
+          <div class="text-center md:text-right">
+            <div class="text-gray-400 mb-4">
+              <p>tsiryandriamahafaly@gmail.com</p>
+              <p class="mt-1">+261 34 09 065 59</p>
+            </div>
+            <div class="text-gray-500 text-sm">
+              <p>
+                © <span id="currentYear"></span> Tsiry ANDRIAMAHAFALY. Tous
+                droits réservés.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </footer>
 
     <script>
-        // Gestion des onglets compétences
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const tabId = button.getAttribute('data-tab');
-                
-                // Retirer les styles actifs
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('border-black', 'text-black');
-                    btn.classList.add('border-transparent');
-                });
-                
-                // Ajouter le style actif au bouton cliqué
-                button.classList.add('border-black', 'text-black');
-                button.classList.remove('border-transparent');
-                
-                // Masquer tous les contenus
-                tabContents.forEach(content => {
-                    content.classList.add('hidden');
-                    content.classList.remove('animate__fadeIn');
-                });
-                
-                // Afficher le contenu correspondant
-                const activeTab = document.getElementById(tabId);
-                activeTab.classList.remove('hidden');
-                setTimeout(() => {
-                    activeTab.classList.add('animate__fadeIn');
-                }, 10);
-            });
+      // Gestion des onglets compétences
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const tabId = button.getAttribute("data-tab");
+
+          // Retirer les styles actifs
+          tabButtons.forEach((btn) => {
+            btn.classList.remove("border-black", "text-black");
+            btn.classList.add("border-transparent");
+          });
+
+          // Ajouter le style actif au bouton cliqué
+          button.classList.add("border-black", "text-black");
+          button.classList.remove("border-transparent");
+
+          // Masquer tous les contenus
+          tabContents.forEach((content) => {
+            content.classList.add("hidden");
+            content.classList.remove("animate__fadeIn");
+          });
+
+          // Afficher le contenu correspondant
+          const activeTab = document.getElementById(tabId);
+          activeTab.classList.remove("hidden");
+          setTimeout(() => {
+            activeTab.classList.add("animate__fadeIn");
+          }, 10);
         });
-        
-        // Menu mobile
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.createElement('div');
-        mobileMenu.className = 'md:hidden bg-white border-t border-gray-200 hidden shadow-lg';
-        mobileMenu.innerHTML = `
-            <div class="px-4 py-6 space-y-4">
+      });
+
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+
+      const mobileMenu = document.createElement("div");
+      mobileMenu.className = `
+            fixed top-16 left-0 w-full
+            md:hidden
+            bg-white
+            border-t border-gray-200
+            shadow-xl
+            hidden
+            z-50
+        `;
+
+      mobileMenu.innerHTML = `
+            <div class="px-6 py-6 space-y-4">
                 <a href="#experiences" class="block text-gray-700 hover:text-black py-2 transition-colors">Réalisations</a>
                 <a href="#competences" class="block text-gray-700 hover:text-black py-2 transition-colors">Compétences</a>
                 <a href="#expertise" class="block text-gray-700 hover:text-black py-2 transition-colors">Expertise</a>
                 <a href="#contact" class="block text-gray-700 hover:text-black py-2 transition-colors">Contact</a>
             </div>
         `;
-        
-        mobileMenuBtn.parentNode.insertBefore(mobileMenu, mobileMenuBtn.nextSibling);
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+
+      // Injection juste après la navbar
+      document.body.appendChild(mobileMenu);
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Fermer au clic sur un lien
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
         });
-        
-        // Fermer le menu mobile au clic sur un lien
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+      });
+
+      // Fermer automatiquement au resize desktop
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+
+      // Mettre à jour l'année dans le footer
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // Animation au scroll avec stagger
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Si l'élément a la classe stagger-animation, on anime chaque enfant
+            if (entry.target.classList.contains("stagger-animation")) {
+              const children = entry.target.children;
+              Array.from(children).forEach((child, index) => {
+                setTimeout(() => {
+                  child.style.animationDelay = `${index * 0.1}s`;
+                  child.classList.add("animate__fadeInUp");
+                }, 10);
+              });
+            } else {
+              entry.target.classList.add("animate__fadeInUp");
+            }
+          }
         });
-        
-        // Mettre à jour l'année dans le footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Animation au scroll avec stagger
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Si l'élément a la classe stagger-animation, on anime chaque enfant
-                    if (entry.target.classList.contains('stagger-animation')) {
-                        const children = entry.target.children;
-                        Array.from(children).forEach((child, index) => {
-                            setTimeout(() => {
-                                child.style.animationDelay = `${index * 0.1}s`;
-                                child.classList.add('animate__fadeInUp');
-                            }, 10);
-                        });
-                    } else {
-                        entry.target.classList.add('animate__fadeInUp');
-                    }
-                }
-            });
-        }, observerOptions);
-        
-        // Observer les sections et les éléments avec stagger
-        document.querySelectorAll('section, .project-card, .stagger-animation').forEach(element => {
-            observer.observe(element);
+      }, observerOptions);
+
+      // Observer les sections et les éléments avec stagger
+      document
+        .querySelectorAll("section, .project-card, .stagger-animation")
+        .forEach((element) => {
+          observer.observe(element);
         });
-        
-        // Effet de parallaxe léger
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.animate-float');
-            
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.5;
-                const yPos = -(scrolled * speed) / (index + 2);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
+
+      // Effet de parallaxe léger
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(".animate-float");
+
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.5;
+          const yPos = -(scrolled * speed) / (index + 2);
+          element.style.transform = `translateY(${yPos}px)`;
         });
+      });
     </script>
-</body>
+  </body>
 </html>
